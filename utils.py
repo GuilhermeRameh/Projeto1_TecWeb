@@ -39,8 +39,8 @@ def addToJson(dict):
 
     # with open('data/notes.json', 'w', encoding='UTF-8') as jsonFile:
     #     json.dump(jsonObject, jsonFile)
-    db = Database('banco')
-    newData = f"Note(title='"+dict['titulo']+"', content='"+dict['titulo']+"')"
+    db = Database('note')
+    newData = Note(title=dict['titulo'], content=dict['detalhes'])
     db.add(newData)
 
 

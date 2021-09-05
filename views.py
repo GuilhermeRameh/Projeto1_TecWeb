@@ -1,4 +1,6 @@
 from utils import *
+from database import Database
+db = Database('note')
 
 def index(request):
     # A string de request sempre começa com o tipo da requisição (ex: GET, POST)
@@ -41,8 +43,8 @@ def index(request):
     # Se tiver curiosidade: https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados['titulo'], details=dados['detalhes'])
-        for dados in load_data('notes.json')
+        note_template.format(id=dados.id, title=dados.title, details=dados.content)
+        for dados in db.get_all()
     ]
     notes = '\n'.join(notes_li)
 
