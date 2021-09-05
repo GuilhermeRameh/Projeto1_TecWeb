@@ -42,8 +42,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let button = editButton[i]
 
     button.onclick = function() {
-      console.log("This button is: ", i)
+      id = button.id.charAt(button.id.length-1)
+      console.log("This edit button is: ", id)
       popupWindow.style.display = "block";
+    }
+  }
+
+  let deleteButton = document.getElementsByClassName("delete-button"); 
+  for (let i = 0; i < deleteButton.length; i++) {
+    let button = deleteButton[i]
+
+    button.onclick = function() {
+      id = button.id.charAt(button.id.length-1)
+      console.log("This delete button is: ", id)
     }
   }
 
