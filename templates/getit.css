@@ -114,6 +114,91 @@ body {
   color: #4c4c4c;
 }
 
+.edit-button:hover, .delete-button:hover{
+  background-color: rgba(17.25, 17.25, 17.25, 0.6);
+}
+
+.button-layout{
+  display: none;
+  flex-direction: row-reverse;
+}
+
+.edit-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.2rem;
+  background-color:rgba(17.25, 17.25, 17.25, 0.4);
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+  margin-right: 0.2rem;
+}
+
+.delete-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.2rem;
+  background-color:rgba(17.25, 17.25, 17.25, 0.4);
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.card:hover > .button-layout{
+  display: flex;
+}
+
+
+/* STYLE FOR POPUP WINDOW :) */
+
+.popup-window {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.window-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
 .card-color-1{
   background-color: #ead3a7
 }

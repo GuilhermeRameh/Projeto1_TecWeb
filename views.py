@@ -1,6 +1,6 @@
 from utils import *
 from database import Database
-db = Database('note')
+db = Database('data/note')
 
 def index(request):
     # A string de request sempre começa com o tipo da requisição (ex: GET, POST)
@@ -35,7 +35,7 @@ def index(request):
 
         print('========================{}===================='.format(params))
 
-        addToJson(params)
+        writeNote(params)
 
         return build_response(code=303, reason='See Other', headers='Location: /')
 

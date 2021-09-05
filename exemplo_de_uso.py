@@ -1,6 +1,6 @@
 from database import *
 
-db = Database('note')
+db = Database('data/note')
 
 # db.add(Note(title='Pão doce', content='Abra o pão e coloque o seu suco em pó favorito.'))
 # db.add(Note(title=None, content='Lembrar de tomar água'))

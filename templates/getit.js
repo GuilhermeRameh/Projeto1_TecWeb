@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Sorteia classes de cores aleatoriamente para os cards
-  let cards = document.getElementsByClassName("card");
+  let cards = document.getElementsByClassName("card");  
   for (let i = 0; i < cards.length; i++) {
     let card = cards[i];
     card.className += ` card-color-${getRandomInt(
@@ -27,4 +27,38 @@ document.addEventListener("DOMContentLoaded", function () {
       5
     )} card-rotation-${getRandomInt(1, 11)}`;
   }
+
+  
+  
+  // Get the modal
+  var popupWindow = document.getElementById("popupWindow");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal  
+  let editButton = document.getElementsByClassName("edit-button"); 
+  for (let i = 0; i < editButton.length; i++) {
+    let button = editButton[i]
+
+    button.onclick = function() {
+      console.log("This button is: ", i)
+      popupWindow.style.display = "block";
+    }
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    popupWindow.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == popupWindow) {
+      popupWindow.style.display = "none";
+    }
+  }
+
+
+
 });

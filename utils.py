@@ -31,7 +31,7 @@ def load_template(fileName):
         read = htmlFile.read()
     return read
 
-def addToJson(dict):
+def writeNote(dict):
     # with open('data/notes.json', 'r') as jsonFile:
     #     jsonObject = json.load(jsonFile)
     
@@ -39,7 +39,7 @@ def addToJson(dict):
 
     # with open('data/notes.json', 'w', encoding='UTF-8') as jsonFile:
     #     json.dump(jsonObject, jsonFile)
-    db = Database('note')
+    db = Database('data/note')
     newData = Note(title=dict['titulo'], content=dict['detalhes'])
     db.add(newData)
 

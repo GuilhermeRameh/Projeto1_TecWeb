@@ -1,6 +1,24 @@
-<li class="card">
+<li class="card" id="card">
     <h3 class="card-title">{title}</h3>
     <div class="card-content">
       <p>{details}</p>
     </div>
+
+    <div class="button-layout" id="button-layout">
+      <button class="delete-button" onclick="deleteCard()"><i class="fa fa-trash"></i></button>
+      <button class="edit-button" id="editButton-{id}"><i class="fa fa-edit"></i></button>
+    </div>
+
   </li>
+
+  <div id="popupWindow" class="popup-window">
+    <div class="window-content">
+      <span class="close">&times;</span>
+      <h4>Título:</h4>
+      <textarea class="popup-title">{title}</textarea>
+      <h4>Conteúdo:</h4>
+      <textarea class="popup-content">{details}</textarea>
+      <button class="btn" style="margin-top: 2rem;" >Modificar</button>
+    </div>
+  </div>
+  
