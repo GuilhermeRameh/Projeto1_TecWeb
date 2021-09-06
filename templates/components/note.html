@@ -5,20 +5,29 @@
     </div>
 
     <div class="button-layout" id="button-layout">
-      <button class="delete-button" id="deleteButton-{id}"><i class="fa fa-trash"></i></button>
-      <button class="edit-button" id="editButton-{id}"><i class="fa fa-edit"></i></button>
+      <form method="post">
+        <input type="hidden" name="method" value="DELETE"/>
+        <input type="hidden" name="id" value="{id}"/>
+        <button class="delete-button" id="deleteButton-{id}" type="submit"><i class="fa fa-trash"></i></button>
+      </form>
+
+      <button class="edit-button" id="editButton-{id}" onclick="openUpdateForm({id})"><i class="fa fa-edit"></i></button>
     </div>
 
   </li>
 
-  <div id="popupWindow" class="popup-window">
-    <div class="window-content">
-      <span class="close">&times;</span>
-      <h4>Título:</h4>
-      <textarea class="popup-title">{title}</textarea>
-      <h4>Conteúdo:</h4>
-      <textarea class="popup-content">{details}</textarea>
-      <button class="btn" style="margin-top: 2rem;" >Modificar</button>
-    </div>
+  <div id="popupWindow-{id}" class="popup-window">
+    <form method="post">
+      <input type="hidden" name="method" value="UPDATE"/>
+      <input type="hidden" name="id" value="{id}"/>
+      <div class="window-content">
+        <button class="close" onclick="closeUpdateForm({id})">&times;</button>
+        <h4>Título:</h4>
+        <input class="popup-title" type="text" name="title" value="{title}"/>
+        <h4>Conteúdo:</h4>
+        <input class="popup-content" type="text" name="details" value="{details}"/>
+        <button class="btn" type="submit" margin-top: 2rem; >Modificar</button>
+      </div>
+    </form>
   </div>
   

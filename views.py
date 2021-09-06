@@ -1,5 +1,7 @@
 from utils import *
-from database import Database
+from database import Database, Note
+import urllib
+
 db = Database('data/note')
 
 def index(request):
@@ -11,31 +13,20 @@ def index(request):
         corpo = partes[1]
         params = {}
 
-        # Preencha o dicionário params com as informações do corpo da requisição
-        # O dicionário conterá dois valores, o título e a descrição.
-        # Posteriormente pode ser interessante criar uma função que recebe a
-        # requisição e devolve os parâmetros para desacoplar esta lógica.
-        # Dica: use o método split da string e a função unquote_plus
         for chave_valor in corpo.split('&'):
-            string = ""
+            chave, valor = chave_valor.split('=')
+            params[chave] = urllib.parse.unquote_plus(valor, encoding='utf-8', errors='replace')     
 
-            if 'titulo=' in chave_valor:
-                lista = chave_valor.split('=')
-                listaString  = lista[1].replace("+", " ")
-                for item in listaString:
-                    string += item
-                params['titulo'] = string
 
-            else:
-                lista = chave_valor.split('detalhes=')
-                listaString  = lista[1].replace("+", " ")
-                for item in listaString:
-                    string += item
-                params['detalhes'] = string
-
-        print('========================{}===================='.format(params))
-
-        writeNote(params)
+        if params["method"] == "POST":
+            writeNote(params)
+        elif params['method'] == 'DELETE':
+            db.delete(params['id'])
+        elif params['method'] == 'UPDATE': 
+            note = Note(id=params["id"], title=params["title"], content=params["details"])
+            print(f'\n\n\n{note}\n\n\n')
+            db.update(note)
+            
 
         return build_response(code=303, reason='See Other', headers='Location: /')
 

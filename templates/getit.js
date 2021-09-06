@@ -4,6 +4,16 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+var updateNoteForm = "popupWindow-"
+
+function openUpdateForm(id) {
+  document.getElementById(updateNoteForm.concat(String(id))).style.display = "block"
+}
+
+function closeUpdateForm(id) {
+  document.getElementById(updateNoteForm.concat(String(id))).style.display = "none"
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Faz textarea aumentar a altura automaticamente
   // Fonte: https://www.geeksforgeeks.org/how-to-create-auto-resize-textarea-using-javascript-jquery/#:~:text=It%20can%20be%20achieved%20by,height%20of%20an%20element%20automatically.
@@ -27,49 +37,5 @@ document.addEventListener("DOMContentLoaded", function () {
       5
     )} card-rotation-${getRandomInt(1, 11)}`;
   }
-
-  
-  
-  // Get the modal
-  var popupWindow = document.getElementById("popupWindow");
-
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-
-  // When the user clicks on the button, open the modal  
-  let editButton = document.getElementsByClassName("edit-button"); 
-  for (let i = 0; i < editButton.length; i++) {
-    let button = editButton[i]
-
-    button.onclick = function() {
-      id = button.id.charAt(button.id.length-1)
-      console.log("This edit button is: ", id)
-      popupWindow.style.display = "block";
-    }
-  }
-
-  let deleteButton = document.getElementsByClassName("delete-button"); 
-  for (let i = 0; i < deleteButton.length; i++) {
-    let button = deleteButton[i]
-
-    button.onclick = function() {
-      id = button.id.charAt(button.id.length-1)
-      console.log("This delete button is: ", id)
-    }
-  }
-
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    popupWindow.style.display = "none";
-  }
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == popupWindow) {
-      popupWindow.style.display = "none";
-    }
-  }
-
-
 
 });
