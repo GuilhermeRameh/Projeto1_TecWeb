@@ -1,0 +1,42 @@
+{% extends "notes/index.html" %}
+
+{% block notes %}
+
+{% for note in notes %}
+
+  <li class="card" id="card">
+      <h3 class="card-title">{{note.title}}</h3>
+      <div class="card-content">
+        <p>{{note.content}}</p>
+      </div>
+
+      <div class="button-layout" id="button-layout">
+        <form method="post">
+          <input type="hidden" name="method" value="DELETE"/>
+          <input type="hidden" name="id" value="{id}"/>
+          <button class="delete-button" id="deleteButton-{id}" type="submit"><i class="fa fa-trash"></i></button>
+        </form>
+
+        <button class="edit-button" id="editButton-{id}" onclick="openUpdateForm({id})"><i class="fa fa-edit"></i></button>
+      </div>
+
+    </li>
+
+    <div id="popupWindow-{id}" class="popup-window">
+      <form method="post">
+        <input type="hidden" name="method" value="UPDATE"/>
+        <input type="hidden" name="id" value="{id}"/>
+        <div class="window-content">
+          <span class="close" onclick="closeUpdateForm({id})">&times;</span>
+          <h4>Título:</h4>
+          <input class="popup-title" type="text" name="title" value="{title}"/>
+          <h4>Conteúdo:</h4>
+          <input class="popup-content" type="text" name="details" value="{details}"/>
+          <button class="btn" type="submit" margin-top: 2rem; >Modificar</button>
+        </div>
+      </form>
+    </div>
+
+  {% endfor %}
+  
+  {% endblock %}
