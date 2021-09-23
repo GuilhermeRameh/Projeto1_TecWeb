@@ -1,0 +1,43 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="appbar">
+  <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+  <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+  <a class="tags-page" href="{% url 'tags-page' %}"><i class="fa fa-filter"></i></a>
+  <span class="tags-subtitle">Tags</span>
+  <a class="tags-page" href="{% url 'index' %}"><i class="fa fa-sticky-note"></i></a>
+  <span class="tags-subtitle">Todas Notas</span>
+</div>
+
+<main class="container">
+  <!-- method="post" foi removido apenas para o exemplo funcionar sem o servidor -->
+  <form class="form-card" method="post">
+    {% csrf_token %}
+    <h3 class='texto-container'>Adicione um "Get-it" no mural:</h3>
+    <input type="hidden" name="method" value="POST"/>
+    <input
+      class="form-card-title"
+      type="text"
+      name="titulo"
+      placeholder="Título"
+    />
+    <textarea
+      class="autoresize"
+      name="detalhes"
+      placeholder="Digite o conteúdo..."
+    ></textarea>
+    <input
+      class="form-card-tag"
+      type="text"
+      name="tag"
+      placeholder="Tag"
+    />
+    <button class="btn" type="submit">Criar</button>
+  </form>
+
+  <div class="card-container">
+    {% include "notes/note.html" %}
+  </div>
+{% endblock %}

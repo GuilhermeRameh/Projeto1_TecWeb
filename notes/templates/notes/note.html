@@ -1,0 +1,43 @@
+{% load static %}
+
+{% for note in notes %}
+  <li class="card" id="card">
+      <h3 class="card-title">{{note.title}}</h3>
+      <div class="card-content">
+        <p>{{note.content}}</p>
+      </div>
+      <div class="card-tag">
+        <p>{{note.tag}}</p>
+      </div>
+    
+      <div class="button-layout" id="button-layout">
+        <form method="post" action="{% url 'delete' %}">
+          {% csrf_token %}
+          <input type="hidden" name="id" value='{{note.id}}'/>
+          <button class="delete-button" id="deleteButton-{{note.id}}" type="submit"><i class="fa fa-trash"></i></button>
+        </form>
+
+        <button class="edit-button" id="editButton-{{note.id}}" onclick="openUpdateForm('{{note.id}}')"><i class="fa fa-edit"></i></button>
+      </div>
+
+    </li>
+
+    <div id="popupWindow-{{note.id}}" class="popup-window">
+      <form method="post" action="{% url 'update' %}">
+        {% csrf_token %}
+        <input type="hidden" name="id" value='{{note.id}}'/>
+        <div class="window-content">
+          <span class="close" onclick="closeUpdateForm('{{note.id}}')">&times;</span>
+          <h4>Título:</h4>
+          <input class="popup-title" type="text" name="title" value="{{note.title}}"/>
+          <h4>Conteúdo:</h4>
+          <input class="popup-content" type="text" name="content" value="{{note.content}}"/>
+          <h4>Tag:</h4>
+          <input class="popup-content" type="text" name="tag" value="{{note.tag}}"/>
+          <button class="btn" type="submit" margin-top: 2rem; >Modificar</button>
+        </div>
+      </form>
+    </div>
+
+  {% endfor %}
+  

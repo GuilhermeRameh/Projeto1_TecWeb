@@ -1,0 +1,26 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="appbar">
+  <img src="{% static 'notes/img/logo-getit.png' %}" class="logo" />
+  <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+  <a class="tags-page" href="{% url 'tags-page' %}"><i class="fa fa-filter"></i></a>
+  <span class="tags-subtitle">Tags</span>
+  <a class="tags-page" href="{% url 'index' %}"><i class="fa fa-sticky-note"></i></a>
+  <span class="tags-subtitle">Todas Notas</span>
+</div>
+
+<main class="container">
+  <!-- method="post" foi removido apenas para o exemplo funcionar sem o servidor -->
+
+  {% for tag in tags %}
+  <div class="tag-title-container">
+    <h4>Tag Filtrada: "{{tag}}"</h4>
+  </div>
+  {% endfor %}
+
+  <div class="card-container">
+    {% include "notes/note.html" %}
+  </div>
+{% endblock %}
