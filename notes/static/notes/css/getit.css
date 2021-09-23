@@ -28,8 +28,15 @@ body {
   width: 99.3%;
   display: flex;
   flex-direction: column;
-  background-color: #3a3a3a;
+  background-color: #a0a0a0;
 }
+
+a:visited { text-decoration: none; color:black; }
+a:hover { text-decoration: none; color:black; }
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:rgba(0,0,0,0.6) }
+
+
 .appbar {
   display: flex;
   padding: 0.5rem;
@@ -48,6 +55,18 @@ body {
 .subtitle {
   padding: 10px;
 }
+
+.tags-page{
+  margin-left: 4rem;
+  margin-right: 0.1rem;
+  font-size: xx-large;
+}
+
+.tags-subtitle{
+  font-size: 0.8rem;
+
+}
+
 .container{
   display: flex;
   flex-direction: column;
@@ -78,6 +97,12 @@ body {
   font-size: 1.1rem;
   border: 0px;
 }
+.form-card-tag{
+  font-size: 0.9rem;
+  border: 0px;
+  margin-bottom: 0.5rem;
+}
+
 .autoresize {
   border: 0px;
   height: 1rem;
@@ -121,6 +146,12 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.card-tag{
+  font-family: 'Permanent Marker', cursive;
+  font-size:smaller;
+  color: #4c4c4c;
+}
+
 .card-content{
   display: flex;
   flex-grow: 1;
@@ -129,6 +160,45 @@ body {
   font-family: 'Permanent Marker', cursive;
   font-size:smaller;
   color: #4c4c4c;
+}
+
+.tag-title{
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.tag-title-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size:larger;
+  color: black;
+  margin-bottom:1rem;
+}
+
+.tags-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom:1rem;
+}
+
+.lista-tags{
+  margin: 0.5rem;
+  list-style-type: none;
+  padding: 0.5rem;
+  background-color: #F17D4B;
+  border: solid black;
+  font-family: 'Permanent Marker', cursive;
+  font-size:larger;
+  color: black;
+}
+
+.lista-tags:hover{
+  background-color: rgb(253, 159, 119)
 }
 
 .edit-button:hover, .delete-button:hover{

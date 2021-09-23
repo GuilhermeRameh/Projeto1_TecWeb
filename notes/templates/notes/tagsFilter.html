@@ -13,29 +13,12 @@
 
 <main class="container">
   <!-- method="post" foi removido apenas para o exemplo funcionar sem o servidor -->
-  <form class="form-card" method="post">
-    {% csrf_token %}
-    <h3 class='texto-container'>Adicione um "Get-it" no mural:</h3>
-    <input type="hidden" name="method" value="POST"/>
-    <input
-      class="form-card-title"
-      type="text"
-      name="titulo"
-      placeholder="Título"
-    />
-    <textarea
-      class="autoresize"
-      name="detalhes"
-      placeholder="Digite o conteúdo..."
-    ></textarea>
-    <input
-      class="form-card-tag"
-      type="text"
-      name="tag"
-      placeholder="Tag"
-    />
-    <button class="btn" type="submit">Criar</button>
-  </form>
+
+  {% for tag in tags %}
+  <div class="tag-title-container">
+    <h4>Tag Filtrada: "{{tag}}"</h4>
+  </div>
+  {% endfor %}
 
   <div class="card-container">
     {% include "notes/note.html" %}

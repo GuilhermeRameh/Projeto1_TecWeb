@@ -19,4 +19,5 @@ class Migration(migrations.Migration):
                 ('content', models.TextField()),
             ],
         ),
+        
     ]
