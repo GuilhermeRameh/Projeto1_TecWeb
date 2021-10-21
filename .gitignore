@@ -1,7 +1,5 @@
 __pycache__
 /env
-/getit/settings.py
-
 env/
 *.egg-info
 *.pot
